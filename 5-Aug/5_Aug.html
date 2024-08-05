@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Problem Sheet</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            padding: 20px 0;
+            background-color: #2196F3;
+            color: #fff;
+            margin: 0;
+            border-bottom: 4px solid #1e88e5;
+        }
+
+        section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+        }
+
+        h2 {
+            color: #2196F3;
+            border-bottom: 2px solid #2196F3;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            /* Ensures proper wrapping for long lines */
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .complexity {
+            background-color: #e7f3fe;
+            padding: 20px;
+            border-left: 5px solid #2196F3;
+            border-radius: 8px;
+        }
+
+        p {
+            margin: 0;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Problem Name: Kth Distinct String in an Array</h1>
+
+    <section>
+        <h2>Problem Statement</h2>
+        <p>A distinct string is a string that is present only once in an array.
+
+            Given an array of strings arr, and an integer k, return the kth distinct string present in arr. If there are fewer than k distinct strings, return an empty string "".
+            
+            Note that the strings are considered in the order in which they appear in the array.</p>
+    </section>
+
+    <section>
+        <h2>Brute Force Solution</h2>
+        <pre><code>// Add your Brute solution here
+
+</code></pre>
+    </section>
+
+    <section>
+        <h2>Optimal Solution</h2>
+        <pre><code>class Solution {
+            public String kthDistinct(String[] arr, int k) {
+                HashMap<String, Integer> map = new HashMap<>();
+                int n = arr.length;
+                int count = 0;
+                int resIndex = 0;
+        
+                for(int i = 0; i<n; i++){
+                    map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
+                }
+        
+                for(String s: arr){
+                    if(map.get(s)==1){
+                        count++;
+        
+                        if(count==k){
+                            return s;
+                        }
+                    }
+                }
+                return "";
+            }
+        }</code></pre>
+    </section>
+
+    <section class="complexity">
+        <h2>Space and Time Complexity</h2>
+        <p><strong>Brute Force Solution:</strong> Time Complexity - O(n^2 log n), Space Complexity - O(n^2)</p>
+        <p><strong>Better Solution:</strong> Time Complexity - TBD, Space Complexity - TBD</p>
+        <p><strong>Optimal Solution:</strong> Time Complexity - TBD, Space Complexity - TBD</p>
+    </section>
+
+</body>
+
+</html>
